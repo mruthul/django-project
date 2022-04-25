@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <img src="{{ data.Img.url }}" alt="" height="250px" width="300px"> <br>
+    {{data.Name}} <br>
+    {{data.Brand}} <br>  
+    {{data.Year}}
+{% endblock %}

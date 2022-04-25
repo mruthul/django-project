@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    <label for="">NAME</label>
+                </td>
+                <td>
+                    <input type="text" name="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">AGE</label>
+                </td>
+                <td>
+                    <input type="text" name="age">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">EMAIL</label>
+                </td>
+                <td>
+                    <input type="text" name="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">PASSWORD</label>
+                </td>
+                <td>
+                    <input type="password" name="password" id="p1">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">CONFIRM PASSWORD</label>
+                </td>
+                <td>
+                    <input type="password" name="cpassword" id="p2">
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="submit">
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <div class="registrationFormAlert" style="color: aqua;" id="CheckPasswordMatch">
+        <script>
+        function checkPasswordMatch() {
+            var password=$("#p1").val();
+            var cpassword=$("#p2").val();
+            if (password != cpassword)
+                $("#CheckPasswordMatch").html("Passwords no match");
+            
+            else
+                $("#CheckPasswordMatch").html("Passwords Match");
+
+        }
+        $(document).ready(function () {
+            $("#p2").keyup(checkPasswordMatch);
+        })
+    </script>
+{% endblock %}
+</div>
+</center>
